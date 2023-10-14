@@ -2,14 +2,18 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Table(name = "excursions")
-@Data
+@Getter
+@Setter
 public class Excursion {
 
     @Id

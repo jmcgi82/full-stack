@@ -29,7 +29,7 @@ public class CartItem {
     @OneToOne
     private Vacation vacation;
 
-    @ManyToMany(mappedBy = "cart_item")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "cartItems")
     private Set<Excursion> excursions;
 
     public CartItem() {
