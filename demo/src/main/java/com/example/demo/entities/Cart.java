@@ -45,4 +45,8 @@ public class Cart {
 
     public Cart() {
     }
+
+    public void add(CartItem cartItem) {
+        this.cartItems.add(cartItem);
+    }
 }
