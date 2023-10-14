@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import com.example.demo.domain.*;
+import com.example.demo.entities.*;
 //import edu.wgu.d288_backend.entities.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
