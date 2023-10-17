@@ -5,15 +5,15 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 
-public class ZipCodeValidation implements ConstraintValidator<ValidZipCode, Customer> {
+public class ZipCodeValidation implements ConstraintValidator<ValidZipCode, String> {
     @Override
     public void initialize(ValidZipCode constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Customer customer, ConstraintValidatorContext constraintValidatorContext) {
-        String zip = customer.getPhone();
+    public boolean isValid(String zip, ConstraintValidatorContext constraintValidatorContext) {
+
 
         return zip != null && zip.matches("[0-9]+") && (zip.length() == 5);
     }

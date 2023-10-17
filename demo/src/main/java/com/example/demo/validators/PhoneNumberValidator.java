@@ -5,15 +5,15 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import jakarta.validation.Valid;
 
-public class PhoneNumberValidator implements ConstraintValidator<ValidPhoneNumber, Customer> {
+public class PhoneNumberValidator implements ConstraintValidator<ValidPhoneNumber, String> {
     @Override
     public void initialize(ValidPhoneNumber constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Customer customer, ConstraintValidatorContext constraintValidatorContext) {
-        String phone = customer.getPhone();
+    public boolean isValid(String phone, ConstraintValidatorContext constraintValidatorContext) {
+
 
         return phone != null && phone.matches("[0-9]+") && (phone.length() > 8) && (phone.length() < 14);
     }
