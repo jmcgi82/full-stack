@@ -1,6 +1,8 @@
 package com.example.demo.entities;
 
 
+import com.example.demo.validators.ValidPhoneNumber;
+import com.example.demo.validators.ValidZipCode;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -29,9 +31,11 @@ public class Customer {
     private String address;
 
     @Column(name="postal_code")
+    @ValidZipCode
     private String postal_code;
 
     @Column(name="phone")
+    @ValidPhoneNumber
     private String phone;
 
     @Column(name="create_date")
