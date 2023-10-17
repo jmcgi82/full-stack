@@ -26,10 +26,13 @@ public class CartItem {
     @Column(name="last_update")
     private Date last_update;
 
+    @Column(name="vacation_id")
+    private Long vacation_id;
+
     @OneToOne
     private Vacation vacation;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "cartItems")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "cart_items")
     private Set<Excursion> excursions;
 
     public CartItem() {

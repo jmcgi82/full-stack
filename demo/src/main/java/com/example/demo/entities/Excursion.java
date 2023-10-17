@@ -22,19 +22,19 @@ public class Excursion {
     private Long id;
 
     @Column(name="excursion_title")
-    private String excursionTitle;
+    private String excursion_title;
 
     @Column(name="excursion_price")
-    private BigDecimal excursionPrice;
+    private BigDecimal excursion_price;
 
     @Column(name="image_url")
-    private String imageURL;
+    private String image_URL;
 
     @Column(name = "create_date")
-    private Date createDate;
+    private Date create_date;
 
     @Column(name = "last_update")
-    private Date lastUpdate;
+    private Date last_update;
 
     @ManyToOne
     @JoinColumn(name = "vacation_id")
@@ -46,7 +46,7 @@ public class Excursion {
             joinColumns = @JoinColumn(name = "cart_item_id"),
             inverseJoinColumns = @JoinColumn(name = "excursion_id")
     )
-    private Set<CartItem> cartItems;
+    private Set<CartItem> cart_items;
 
     public Excursion() {
     }

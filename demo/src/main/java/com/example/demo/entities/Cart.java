@@ -19,13 +19,13 @@ public class Cart {
     private Long id;
 
     @Column(name = "order_tracking_number")
-    private String orderTrackingNumber;
+    private String order_tracking_number;
 
     @Column(name="package_price")
-    private BigDecimal packagePrice;
+    private BigDecimal package_price;
 
-    @Column(name="part_size")
-    private int partySize;
+    @Column(name="party_size")
+    private int party_size;
 
     @Column(name="status")
     private StatusType status;
@@ -34,19 +34,19 @@ public class Cart {
     private Date createDate;
 
     @Column(name="last_update")
-    private Date lastUpdate;
+    private Date last_update;
 
     @ManyToOne
     @JoinColumn(name="customer_id")
     private Customer customer;
 
     @OneToMany(mappedBy = "cart")
-    private Set<CartItem> cartItems;
+    private Set<CartItem> cart_items;
 
     public Cart() {
     }
 
     public void add(CartItem cartItem) {
-        this.cartItems.add(cartItem);
+        this.cart_items.add(cartItem);
     }
 }

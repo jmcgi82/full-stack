@@ -17,27 +17,30 @@ public class Division {
     private Long id;
 
     @Column(name="division")
-    private String divisionName;
+    private String division_name;
 
     @Column(name="create_date")
-    private Date createDate;
+    private Date create_date;
 
     @Column(name="last_update")
-    private Date lastUpdate;
+    private Date last_update;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country_id", insertable = false, updatable = false)
     private Country country;
-
-    @Column(insertable = false, updatable = false, name="country_id")
-    private Long countryId;
 
     @OneToMany(mappedBy = "division")
     private Set<Customer> customers;
 
+
+    @Column(name = "country_id")
+    private long country_id;
+
+    public void setCountry(Country country) {
+        setCountry_id(country.getId());
+        this.country = country;
+    }
     public Division() {
     }
-
-    public void setCountry(Country country) { this.country = country; }
 
 }

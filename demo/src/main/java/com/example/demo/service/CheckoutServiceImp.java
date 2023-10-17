@@ -27,7 +27,7 @@ public class CheckoutServiceImp implements CheckoutService {
         String orderTrackingNumber = generateOrderTrackingNumber();
 
         Set<CartItem> cartItems = purchase.getCartItems();
-        cart.setCartItems(cartItems);
+        cart.setCart_items(cartItems);
 
         Customer customer = cart.getCustomer();
 
