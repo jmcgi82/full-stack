@@ -23,9 +23,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 @Configuration
 public class RestDataConfig implements RepositoryRestConfigurer {
 
+
     @Value("${allowed.origins}")
     private String[] theAllowedOrigins;
-
 
     /**
      * This method exposes standard rest api end points for the following classes:
@@ -51,6 +51,7 @@ public class RestDataConfig implements RepositoryRestConfigurer {
         config.setMaxPageSize(Integer.MAX_VALUE);
 
         cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
+
     }
 }
 

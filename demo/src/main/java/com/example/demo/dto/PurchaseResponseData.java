@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.dto;
 
 import lombok.Data;
 
@@ -7,5 +7,4 @@ public class PurchaseResponseData {
 
     private String orderTrackingNumber;
 
-    public PurchaseResponseData() {}
 }

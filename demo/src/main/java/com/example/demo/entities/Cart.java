@@ -2,6 +2,8 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -28,12 +30,15 @@ public class Cart {
     private int party_size;
 
     @Column(name="status")
+    @Enumerated(EnumType.STRING)
     private StatusType status;
 
     @Column(name="create_date")
+    @CreationTimestamp
     private Date createDate;
 
     @Column(name="last_update")
+    @UpdateTimestamp
     private Date last_update;
 
     @ManyToOne
