@@ -44,11 +44,8 @@ public class Cart {
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name="customer_id")
-    private Long customer_id;
-
     @ManyToOne
-    @JoinColumn(name="customer_id", insertable = false, updatable = false)
+    @JoinColumn(name="customer_id")
     private Customer customer;
 
     @OneToMany(mappedBy = "cart")
@@ -59,11 +56,6 @@ public class Cart {
 
     public void add(CartItem cartItem) {
         this.cart_items.add(cartItem);
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-        this.customer_id = customer.getId();
     }
 
 }
