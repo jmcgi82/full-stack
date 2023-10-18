@@ -1,10 +1,8 @@
 package com.example.demo.bootstrap;
 
+import com.example.demo.dao.CartItemRepository;
 import com.example.demo.dao.CustomerRepository;
-import com.example.demo.dao.DivisionRepository;
-import com.example.demo.entities.Country;
-import com.example.demo.entities.Customer;
-import com.example.demo.entities.Division;
+import com.example.demo.entities.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +14,12 @@ public class BootstrapData implements CommandLineRunner {
 
     private final CustomerRepository customerRepository;
 
-    private final DivisionRepository divisionRepository;
+    private final CartItemRepository cartItemRepository;
 
-    public BootstrapData(CustomerRepository customerRepository, DivisionRepository divisionRepository) {
+
+    public BootstrapData(CustomerRepository customerRepository, CartItemRepository cartItemRepository) {
         this.customerRepository = customerRepository;
-        this.divisionRepository = divisionRepository;
+        this.cartItemRepository = cartItemRepository;
     }
 
     @Override
@@ -33,6 +32,13 @@ public class BootstrapData implements CommandLineRunner {
     }
 
     private void bootStrapCustomers() {
+//        //test
+//        CartItem ci = new CartItem();
+//        ci.set;
+//        ci.setVacation_id(1L);
+
+//        this.cartItemRepository.save(ci);
+
         Customer customer1 = new Customer();
         Customer customer2 = new Customer();
         Customer customer3 = new Customer();
@@ -80,6 +86,9 @@ public class BootstrapData implements CommandLineRunner {
         customer3.setPhone("8937651029");
         customer4.setPhone("9018279474");
         customer5.setPhone("7469019273");
+
+        //
+
 
         //add all customer to set
         Set<Customer> customers = new HashSet<Customer>();
