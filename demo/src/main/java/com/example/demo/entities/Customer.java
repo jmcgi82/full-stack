@@ -5,15 +5,19 @@ import com.example.demo.validators.ValidPhoneNumber;
 import com.example.demo.validators.ValidZipCode;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name="customers")
-@Data
+@Getter
+@Setter
 public class Customer {
 
     @Id
@@ -55,4 +59,13 @@ public class Customer {
 
     public Customer() {
     }
+
+    public void add(Cart cart) {
+        if (this.carts == null) {
+            this.carts = new HashSet<Cart>();
+        }
+
+        this.carts.add(cart);
+    }
+
 }

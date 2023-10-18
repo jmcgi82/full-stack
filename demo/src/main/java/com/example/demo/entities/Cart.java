@@ -2,6 +2,8 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,7 +14,8 @@ import java.util.Set;
 
 @Entity
 @Table(name="carts")
-@Data
+@Getter
+@Setter
 public class Cart {
 
     @Id
@@ -35,14 +38,17 @@ public class Cart {
 
     @Column(name="create_date")
     @CreationTimestamp
-    private Date createDate;
+    private Date create_date;
 
     @Column(name="last_update")
     @UpdateTimestamp
     private Date last_update;
 
+    @Column(name="customer_id")
+    private Long customer_id;
+
     @ManyToOne
-    @JoinColumn(name="customer_id")
+    @JoinColumn(name="customer_id", insertable = false, updatable = false)
     private Customer customer;
 
     @OneToMany(mappedBy = "cart")
@@ -54,4 +60,10 @@ public class Cart {
     public void add(CartItem cartItem) {
         this.cart_items.add(cartItem);
     }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+        this.customer_id = customer.getId();
+    }
+
 }
