@@ -36,7 +36,7 @@ public class Division {
     @JoinColumn(name = "country_id", insertable = false, updatable = false)
     private Country country;
 
-    @OneToMany(mappedBy = "division")
+    @OneToMany(mappedBy = "division", cascade = CascadeType.ALL)
     private Set<Customer> customers;
 
 

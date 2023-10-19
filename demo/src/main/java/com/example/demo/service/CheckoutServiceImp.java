@@ -55,7 +55,7 @@ public class CheckoutServiceImp implements CheckoutService {
         //generate order tracking number and update properties
         String orderTrackingNumber = generateOrderTrackingNumber();
         cart.setOrder_tracking_number(orderTrackingNumber);
-        cart.setId(this.cartRepository.count() + 1);
+        cart.setId(this.cartRepository.count() + 2);
         cart.setStatus(StatusType.ordered);
 
         //get all cart items
@@ -79,7 +79,6 @@ public class CheckoutServiceImp implements CheckoutService {
         //set customer carts
         customer.setCarts(tempCarts);
 
-        List<CartItem> tempItems = new ArrayList<CartItem>(cart.getCart_items());
         //update cart item fields
         Long index = 1L;
         Long id = cartItemRepository.count() + 1;
@@ -89,7 +88,6 @@ public class CheckoutServiceImp implements CheckoutService {
         }
 
         this.cartRepository.save(cart);
-        this.cartItemRepository.saveAll(cartitems);
 
         PurchaseResponseData response = new PurchaseResponseData();
         response.setOrderTrackingNumber(orderTrackingNumber);
